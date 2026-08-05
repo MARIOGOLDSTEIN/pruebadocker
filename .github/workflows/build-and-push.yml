@@ -7,8 +7,8 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_WEB: ghcr.io/${{ github.repository_owner }}/demo-fortaleza-web
-  IMAGE_BACKEND: ghcr.io/${{ github.repository_owner }}/demo-fortaleza-backend
+  IMAGE_WEB: ghcr.io/${{ github.repository_owner }}/pruebadocker
+  IMAGE_BACKEND: ghcr.io/${{ github.repository_owner }}/pruebadocker
 
 jobs:
   build-and-push:

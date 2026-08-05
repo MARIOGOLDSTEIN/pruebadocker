@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  web:
+    # Usamos la imagen compilada por GitHub Actions
+    image: ghcr.io/MARIOGOLDSTEIN/pruebadocker-web:latest
+    container_name: demo_web
+    restart: unless-stopped
+    depends_on:
+      - backend
+    networks:
+      - default
+      - npm_network # <- Conexión vital para Nginx Proxy Manager
+
+  backend:
+    # Usamos la imagen compilada por GitHub Actions
+    image: ghcr.io/MARIOGOLDSTEIN/pruebadocker:latest
+    container_name: demo_backend
+    restart: unless-stopped
+    networks:
+      - default # Solo visible internamente
+
+networks:
+  npm_network:
+    name: npm_network
+    external: true

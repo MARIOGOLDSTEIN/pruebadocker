@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo Fortaleza</title>
+</head>
+<body>
+    <h1>Arquitectura Segura Funcionando 🚀</h1>
+    <p>Si ves esto, Nginx Proxy Manager logró enrutar el tráfico a la red interna.</p>
+    <button onclick="testApi()">Probar conexión al Backend</button>
+    <p id="resultado" style="font-weight: bold; color: green;"></p>
+
+    <script>
+        async function testApi() {
+            try {
+                const res = await fetch('/api/estado');
+                const data = await res.json();
+                document.getElementById('resultado').innerText = 'Backend responde: ' + data.mensaje;
+            } catch (e) {
+                document.getElementById('resultado').innerText = 'Error al conectar con el backend.';
+            }
+        }
+    </script>
+</body>
+</html>
